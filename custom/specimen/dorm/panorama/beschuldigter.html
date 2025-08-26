@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+   
+    <head>
+        <script type="text/javascript" src="../FTColumnflow.js"></script>
+        <meta charset="utf-8" />
+        <!-- Shape 5c-4i -->
+    </head>
+
+    <style type="text/css">
+
+        :root {
+            --renderWidth:              705.04px;
+            --columnCount:              4;
+            --columnGap:                15.874px;
+            --columnWidth:              calc( (var(--renderWidth) + var(--columnGap)) / var(--columnCount) - var(--columnGap) );
+            
+            --lineHeight:               14.13px;
+            --lineCount:                66;
+            
+            --renderAreaHeightLines:    29;
+            --titleAreaHeightLines:     4;
+            --imageAreaHeightLines:     14;
+            --imageHeightLines:         12;
+            --quoteAreaHeightLines:     15;
+            --infoAreaHeightLines:     22;
+
+            --renderHeight:             calc( var(--renderAreaHeightLines) * var(--lineHeight) + 1px);
+            --titleAreaHeightPx:        calc( var(--titleAreaHeightLines) * var(--lineHeight) - 1px );
+            --imageAreaHeightPx:        calc( var(--imageAreaHeightLines) * var(--lineHeight) - 2px );
+            --imageHeightPx:            calc( var(--imageHeightLines) * var(--lineHeight) - 2.8px );
+            --quoteAreaHeightPx:        calc( var(--quoteAreaHeightLines) * var(--lineHeight) - 1px );
+            --infoAreaHeightPx:        calc( var(--infoAreaHeightLines) * var(--lineHeight) - 2px );
+
+            --cfFactor:                 .5;
+            --wordSpacing:              calc( var(--cfFactor) * 0.6em - 0.3em );
+
+            --testStretch:              .85;
+            --bodyStretch:              calc( var(--cfFactor) * 0.44 - 0.22 + 0.9785 ); //0.9785;
+            --titleStretch:             0.95;
+            --subStretch:               1;
+        }
+
+    </style>
+    <link rel="stylesheet" href="../demoartikel.css" />
+    <body lang="de">
+        <div id="viewport">
+            <div id="target"/>
+        </div>
+        <div id="fixedContent">
+            <div class="col-span-5" style="height:var(--titleAreaHeightPx);">
+                <div class="title-2">Beschuldigter von Diepholz schweigt</div>
+                <div class="subtitle-2"><span class="catch">KRIMINALITÄT</span> Nach dem Tod einer 17-Jährigen – Umfangreiche Spuren gesichert</div>
+            </div>
+            <div class="anchor-top-col-2 col-span-2" style="height:var(--imageAreaHeightPx);px;">
+                <img src="beschuldigter.jpg" style="height:var(--imageHeightPx);px;px; margin: 2 0 3 0;width:100%;object-fit: cover;" />
+            <div class="caption"><span>Im Graben neben der Straße im Landkreis Diepholz war die Leiche der 17-Jährigen gefunden worden.  </span><span class="credit">dpa-BILD: TNN</span></div>
+            </div>
+        </div>
+        <div id="flowedContent">
+            <div class="content" id="autoheight">
+<p class="author">VON Elmar Stephan</p><p>
+    <span class="location">VERDEN/DIEPHOLZ</span> – Nach dem gewaltsamen Tod einer 17-Jährigen im Landkreis Diepholz hat sich der Tatverdächtige noch nicht zu den Vorwürfen geäußert. Der in der vergangenen Woche festgenommene 42-Jährige habe bislang von seinem Schweigerecht Gebrauch gemacht, sagte am Donnerstag der Sprecher der Staatsanwaltschaft Verden, Martin Schanz: „Es sind umfangreiche Spuren gesichert worden an den jeweiligen Tatorten, und die sollen jetzt mit Spurenmaterial vom Beschuldigten abgeglichen werden.“ Die Ermittlungen dauerten noch an.
+</p><p>
+Die Mordkommission „Inliner“ arbeite derzeit eine ganze Reihe an Zeugenhinweisen ab, sagte ein Sprecher der Polizeiinspektion Diepholz. Auf einen erneuten Zeugenaufruf aus dieser Woche hätten sich rund fünf weitere Personen gemeldet. So suchten die Ermittler unter anderem nach dem Fahrer oder der Fahrerin eines schwarzen Autos, das um den Tatzeitpunkt herum auf der Straße am Tatort unterwegs gewesen sein soll. Auch die Fahrerin oder der Fahrer eines weiteren Wagens, der zum Tatzeitpunkt in einer Nachbarstraße geparkt war, wurde gesucht. Mit den Zeugen, die sich bislang gemeldet haben, werde gesprochen und deren Angaben überprüft, sagte der Polizeisprecher.
+</p><p>
+Am 10. September war die Leiche einer 17-Jährigen in Barenburg bei Kirchdorf (Landkreis Diepholz) gefunden worden. Die junge Frau war einer Gewalttat zum Opfer gefallen. Am Mittwoch vergangener Woche wurde im wenigen Kilometer entfernten Sulingen vor einem Fast-Food-Restaurant eine 30 Jahre alte Frau mit einem Messer angegriffen. Zeugen kamen der Frau zu Hilfe und brachten die Polizei auf die Spur des 42-Jährigen, der ebenfalls in Kirchdorf wohnt. Der Mann wurde wenige Stunden später in Schwarmstedt (Heidekreis) festgenommen. Er sitzt in Untersuchungshaft.
+</p>
+
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            document.addEventListener('readystatechange', event => {
+                if( document.readyState == "complete" ){
+                    var CFroot = document.querySelector(":root");
+                    var cfr = getComputedStyle(CFroot);
+
+                    var cf = new FTColumnflow('target', 'viewport', {
+                        columnCount: cfr.getPropertyValue('--columnCount'),
+                        columnGap: cfr.getPropertyValue('--columnGap'),
+                        showGrid: false,
+                        lineHeight: cfr.getPropertyValue('--lineHeight'),
+                        lineCount: Number(cfr.getPropertyValue('--lineCount'))
+                    });
+                    cf.flow(document.getElementById('flowedContent'), document.getElementById('fixedContent'));
+                }
+            });
+        </script>
+
+    </body>
+</html>

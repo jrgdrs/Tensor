@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+   
+    <head>
+        <script type="text/javascript" src="../FTColumnflow.js"></script>
+        <meta charset="utf-8" />
+        <!-- Shape 5c-4i -->
+    </head>
+
+    <style type="text/css">
+
+        :root {
+            --renderWidth:              705.04px;
+            --columnCount:              4;
+            --columnGap:                15.874px;
+            --columnWidth:              calc( (var(--renderWidth) + var(--columnGap)) / var(--columnCount) - var(--columnGap) );
+            
+            --lineHeight:               14.13px;
+            --lineCount:                96;
+            
+            --renderAreaHeightLines:    40;
+            --titleAreaHeightLines:     6;
+            --imageAreaHeightLines:     17;
+            --imageHeightLines:         15;
+            --quoteAreaHeightLines:     15;
+            --infoAreaHeightLines:     22;
+
+            --renderHeight:             calc( var(--renderAreaHeightLines) * var(--lineHeight) + 1px);
+            --titleAreaHeightPx:        calc( var(--titleAreaHeightLines) * var(--lineHeight) - 1px );
+            --imageAreaHeightPx:        calc( var(--imageAreaHeightLines) * var(--lineHeight) - 2px );
+            --imageHeightPx:            calc( var(--imageHeightLines) * var(--lineHeight) - 2.8px );
+            --quoteAreaHeightPx:        calc( var(--quoteAreaHeightLines) * var(--lineHeight) - 1px );
+            --infoAreaHeightPx:        calc( var(--infoAreaHeightLines) * var(--lineHeight) - 2px );
+
+            --cfFactor:                 .5;
+            --wordSpacing:              calc( var(--cfFactor) * 0.6em - 0.3em );
+
+            --testStretch:              .85;
+            --bodyStretch:              calc( var(--cfFactor) * 0.44 - 0.22 + 0.9785 ); //0.9785;
+            --titleStretch:             0.95;
+            --subStretch:               1;
+        }
+
+    </style>
+    <link rel="stylesheet" href="../demoartikel.css" />
+    <body lang="de">
+        <div id="viewport">
+            <div id="target"/>
+        </div>
+        <div id="fixedContent">
+            <div class="col-span-5" style="height:var(--titleAreaHeightPx);">
+                <div class="title-1">Boateng-Urteil aufgehoben</div>
+                <div class="subtitle-1"><span class="catch">PROZESS</span> Rechtsstreit mit Ex-Freundin muss komplett neu aufgerollt werden</div>
+            </div>
+            <div class="anchor-top-col-2 col-span-2" style="height:var(--imageAreaHeightPx);px;">
+                <img src="boateng.jpg" style="height:var(--imageHeightPx);px;px; margin: 2 0 3 0;width:100%;object-fit: cover;" />
+            <div class="caption"><span>Jérôme Boateng beim Berufungsprozess vor dem Landgericht München I </span><span class="credit">dpa-BILD: Hoppe</span></div>
+            </div>
+        </div>
+        <div id="flowedContent">
+            <div class="content" id="autoheight">
+<p class="author">VON Britta Schultejans</p><p>
+    <span class="location">MÜNCHEN</span> – Hat der frühere Fußball-Nationalspieler Jérôme Boateng seine damalige Lebensgefährtin attackiert und beleidigt? Oder hat die Frau sich das alles ausgedacht im Streit um die Kinder? Mit diesen Fragen wird sich nun zum vierten Mal ein Gericht befassen müssen.
+</p><p>
+Denn das Bayerische Oberste Landesgericht hat die Verurteilung des Fußballers wegen eklatanter Rechtsfehler „in vollem Umfang“ aufgehoben. Es gab der Revision des Ex-Nationalspielers und auch der von Staatsanwaltschaft und Nebenklage am Donnerstag statt und verwies das Verfahren an das Landgericht München I zurück. Dort muss der Prozess nun komplett neu aufgerollt werden – Beweisaufnahme und Ausbreitung intimster Details inklusive.
+</p><p>
+Das Landgericht München I hatte Boateng im Oktober vergangenen Jahres wegen Angriffen auf seine Ex-Freundin in einem Karibik-Urlaub in zweiter Instanz wegen Körperverletzung und Beleidigung zu einer Geldstrafe von 120 Tagessätzen zu je 10 000 Euro verurteilt – insgesamt 1,2 Millionen Euro.
+</p><p class="inter">
+Fehler des Richters</p><p>
+Doch dabei machte der Vorsitzende Richter einen entscheidenden Fehler, wie das Bayerische Oberste Landesgericht nun feststellte: Denn nachdem die Verteidigung einen Antrag auf Befangenheit gegen ihn gestellt hatte, war er selbst an der Entscheidung beteiligt, diesen abzulehnen. Ein Rechtsverstoß, der nun eine neue Verhandlung nötig macht.
+</p><p>
+Boatengs Anwalt Leonard Walischewski hatte in erster Linie aus diesem Grund die Aufhebung des Urteils gefordert. „Das Verfahren war erschütternd unfair“, sagte er. Zu dem nun entscheidenden Befangenheitsantrag war es gekommen, nachdem der Richter betont hatte, weitere Beweisanträge von Boateng und seinen Verteidigern könnten sich negativ auf eine Strafe auswirken. Boateng sei nach der Entscheidung vom Donnerstag nun „sehr erleichtert“, sagte Walischewski, der seinen Mandanten umgehend über die Aufhebung des Urteils informiert hatte
+</p><p class="inter">
+Revision stattgegeben</p><p>
+Allerdings fielen nicht alle Entscheidungen an diesem Tag zugunsten Boatengs aus. Denn auch der Revision von Staatsanwaltschaft und Boatengs Ex-Freundin, die als Nebenklägerin in dem Verfahren auftritt, gab das Revisionsgericht statt. Das Landgericht habe „widersprüchliche Angaben nicht miteinander abgeglichen“, erläuterte Gerichtssprecher Laurent Lafleur.
+</p><p>
+Die Anwältin von Boatengs Ex-Freundin, Carolin Lütcke, zeigte sich somit am Donnerstag ebenso erleichtert wie Boatengs Anwalt.
+</p>
+
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            document.addEventListener('readystatechange', event => {
+                if( document.readyState == "complete" ){
+                    var CFroot = document.querySelector(":root");
+                    var cfr = getComputedStyle(CFroot);
+
+                    var cf = new FTColumnflow('target', 'viewport', {
+                        columnCount: cfr.getPropertyValue('--columnCount'),
+                        columnGap: cfr.getPropertyValue('--columnGap'),
+                        showGrid: false,
+                        lineHeight: cfr.getPropertyValue('--lineHeight'),
+                        lineCount: Number(cfr.getPropertyValue('--lineCount'))
+                    });
+                    cf.flow(document.getElementById('flowedContent'), document.getElementById('fixedContent'));
+                }
+            });
+        </script>
+
+    </body>
+</html>

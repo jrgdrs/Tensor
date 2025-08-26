@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="../FTColumnflow.js"></script>
+        <meta charset="utf-8" />
+        <!-- Shape 1c-0i -->
+    </head>
+
+    <style type="text/css">
+
+        :root {
+            --renderWidth:              163.5px;
+            --columnCount:              1;
+
+            --columnGap:                15.874px;
+            --columnWidth:              calc( (var(--renderWidth) + var(--columnGap)) / var(--columnCount) - var(--columnGap) );
+            
+            --lineHeight:               14.13px;
+            --lineCount:                20;
+            
+            --renderAreaHeightLines:    29;
+            --titleAreaHeightLines:     5;
+            --imageAreaHeightLines:     23;
+            --imageHeightLines:         21;
+            --quoteAreaHeightLines:     15;
+            --infoAreaHeightLines:     22;
+
+            --renderHeight:             calc( var(--renderAreaHeightLines) * var(--lineHeight) + 1px);
+            --titleAreaHeightPx:        calc( var(--titleAreaHeightLines) * var(--lineHeight) - 1px );
+            --imageAreaHeightPx:        calc( var(--imageAreaHeightLines) * var(--lineHeight) - 1px );
+            --imageHeightPx:            calc( var(--imageHeightLines) * var(--lineHeight) - 4.8px );
+            --quoteAreaHeightPx:        calc( var(--quoteAreaHeightLines) * var(--lineHeight) - 1px );
+            --infoAreaHeightPx:        calc( var(--infoAreaHeightLines) * var(--lineHeight) - 2px );
+
+            --cfFactor:                 .5;
+            --wordSpacing:              calc( var(--cfFactor) * 0.6em - 0.3em );
+
+            --testStretch:              1;
+            --bodyStretch:              calc( var(--cfFactor) * 0.44 - 0.22 + 0.9785 ); //0.9785;
+            --titleStretch:             0.95;
+            --subStretch:               1;
+        }
+
+    </style>
+    <link rel="stylesheet" href="../demoartikel.css" />
+
+    <body lang="de">
+        <div id="viewport">
+            <div id="target"/>
+        </div>
+        <div id="fixedContent">
+            <div class="col-span-1" style="height:var(--titleAreaHeightPx);">
+                <h1 class="title-4">Mann sprengt Polizist und sich in die Luft</h1>
+            </div>
+        </div>
+        <div id="flowedContent">
+            <p class="content" id="autoheight">
+                <span class="location">ESZTERGOM</span><span class="agentur">/DPA</span> – Ein zur Fahndung ausgeschriebener Mann hat sich in Ungarn beim Versuch seiner Festnahme selbst in die Luft gesprengt und dabei einen Polizisten mit in den Tod gerissen. Der Mann habe am Mittwochabend eine Gasexplosion herbeigeführt, als Beamte der Anti-Terror-Einheit TEK in sein Haus am Rande der Kleinstadt Esztergom, 40 Kilometer nordwestlich von Budapest, eindrangen. Das teilte die ungarische Staatsanwaltschaft mit. Elf Polizisten und Feuerwehrleute wurden demnach durch die Explosion verletzt, vier von ihnen schwer.
+            </p>
+        </div>
+
+        <script type="text/javascript">
+            document.addEventListener('readystatechange', event => {
+                if( document.readyState == "complete" ){
+                    var CFroot = document.querySelector(":root");
+                    var cfr = getComputedStyle(CFroot);
+
+                    var cf = new FTColumnflow('target', 'viewport', {
+                        columnCount: cfr.getPropertyValue('--columnCount'),
+                        columnGap: cfr.getPropertyValue('--columnGap'),
+                        showGrid: false,
+                        lineHeight: cfr.getPropertyValue('--lineHeight'),
+                        lineCount: Number(cfr.getPropertyValue('--lineCount'))
+                    });
+                    cf.flow(document.getElementById('flowedContent'), document.getElementById('fixedContent'));
+                }
+            });
+        </script>
+    </body>
+</html>

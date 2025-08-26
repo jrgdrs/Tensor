@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+   
+    <head>
+        <script type="text/javascript" src="../FTColumnflow.js"></script>
+        <meta charset="utf-8" />
+        <!-- Shape 5c-4i -->
+    </head>
+
+    <style type="text/css">
+
+        :root {
+            --renderWidth:              885.55px;
+            --columnCount:              5;
+            --columnGap:                15.874px;
+            --columnWidth:              calc( (var(--renderWidth) + var(--columnGap)) / var(--columnCount) - var(--columnGap) );
+            
+            --lineHeight:               14.13px;
+            --lineCount:                21;
+            
+            --renderAreaHeightLines:    31;
+            --titleAreaHeightLines:     7;
+            --imageAreaHeightLines:     30;
+            --imageHeightLines:         30;
+            --quoteAreaHeightLines:     15;
+            --infoAreaHeightLines:     22;
+
+            --renderHeight:             calc( var(--renderAreaHeightLines) * var(--lineHeight) + 1px);
+            --titleAreaHeightPx:        calc( var(--titleAreaHeightLines) * var(--lineHeight) - 1px );
+            --imageAreaHeightPx:        calc( var(--imageAreaHeightLines) * var(--lineHeight) - 2px );
+            --imageHeightPx:            calc( var(--imageHeightLines) * var(--lineHeight) - 2.8px );
+            --quoteAreaHeightPx:        calc( var(--quoteAreaHeightLines) * var(--lineHeight) - 1px );
+            --infoAreaHeightPx:        calc( var(--infoAreaHeightLines) * var(--lineHeight) - 2px );
+
+            --cfFactor:                 .5;
+            --wordSpacing:              calc( var(--cfFactor) * 0.6em - 0.3em );
+
+            --testStretch:              .85;
+            --bodyStretch:              calc( var(--cfFactor) * 0.44 - 0.22 + 0.9785 ); //0.9785;
+            --titleStretch:             0.95;
+            --subStretch:               1;
+        }
+
+    </style>
+    <link rel="stylesheet" href="../demoartikel.css" />
+    <body lang="de">
+        <div id="viewport">
+            <div id="target"/>
+        </div>
+        <div style="position:absolute; top: calc(31 * var(--lineHeight) - 2.5px ); width:var(--renderWidth); border-top: 1pt solid black;"/>
+        <div id="fixedContent">
+            <div class="anchor-top-col-5" style="height:var(--titleAreaHeightPx);">
+                <div class="solotitle">Maffay tourt 2024 letztes Mal</div>
+            </div>
+            <div class="anchor-top-col-1 col-span-4" style="height:var(--imageAreaHeightPx);px;">
+                <img src="maffay.jpg" style="height:var(--imageHeightPx); margin: 2 0 3 0;width:100%;object-fit: cover;" />
+            </div>
+        </div>
+        <div id="flowedContent">
+            <div class="content" id="autoheight">
+    <p class="solobild"><span>
+Peter Maffay will 2024 zum letzten Mal auf Tournee gehen. Der Grund sei, dass er mehr Zeit mit seiner Familie verbringen wolle, sagte der 74-Jährige am Donnerstag in Köln. Ein kompletter Abschied von der Bühne sei das aber nicht: Er werde weiter bei Einzelkonzerten oder Festivals auftreten. Bei der „We Love Rock’n’Roll-Farewell-Tour-2024“ sind im kommenden Sommer zehn große Open-Air-Konzerte, teilweise in Stadien, geplant. Begleitet wird Maffay von der US-Sängerin Anastacia. Start ist am 21. Juni in Rostock, weitere Stationen sind u.a. Hannover (22.6.), Bremen (2.7.), Hamburg (7.7.). </span><span class="credit" >dpa-BILD: Vennenbernd</span></p>
+</div>
+        </div>
+
+        <script type="text/javascript">
+            document.addEventListener('readystatechange', event => {
+                if( document.readyState == "complete" ){
+                    var CFroot = document.querySelector(":root");
+                    var cfr = getComputedStyle(CFroot);
+
+                    var cf = new FTColumnflow('target', 'viewport', {
+                        columnCount: cfr.getPropertyValue('--columnCount'),
+                        columnGap: cfr.getPropertyValue('--columnGap'),
+                        showGrid: false,
+                        lineHeight: cfr.getPropertyValue('--lineHeight'),
+                        lineCount: Number(cfr.getPropertyValue('--lineCount'))
+                    });
+                    cf.flow(document.getElementById('flowedContent'), document.getElementById('fixedContent'));
+                }
+            });
+        </script>
+
+    </body>
+</html>

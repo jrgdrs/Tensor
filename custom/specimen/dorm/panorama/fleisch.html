@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script type="text/javascript" src="../FTColumnflow.js"></script>
+        <meta charset="utf-8" />
+        <!-- Shape 1c-0i -->
+    </head>
+
+    <style type="text/css">
+
+        :root {
+            --renderWidth:              163.5px;
+            --columnCount:              1;
+            --columnGap:                15.874px;
+            --columnWidth:              calc( (var(--renderWidth) + var(--columnGap)) / var(--columnCount) - var(--columnGap) );
+            
+            --lineHeight:               14.13px;
+            --lineCount:                33;
+            
+            --renderAreaHeightLines:    46;
+            --titleAreaHeightLines:     9;
+            --imageAreaHeightLines:     23;
+            --imageHeightLines:         21;
+            --quoteAreaHeightLines:     15;
+            --infoAreaHeightLines:     22;
+
+            --renderHeight:             calc( var(--renderAreaHeightLines) * var(--lineHeight) + 1px);
+            --titleAreaHeightPx:        calc( var(--titleAreaHeightLines) * var(--lineHeight) - 1px );
+            --imageAreaHeightPx:        calc( var(--imageAreaHeightLines) * var(--lineHeight) - 1px );
+            --imageHeightPx:            calc( var(--imageHeightLines) * var(--lineHeight) - 2.8px );
+            --quoteAreaHeightPx:        calc( var(--quoteAreaHeightLines) * var(--lineHeight) - 1px );
+            --infoAreaHeightPx:        calc( var(--infoAreaHeightLines) * var(--lineHeight) - 2px );
+
+            --cfFactor:                 .5;
+            --wordSpacing:              calc( var(--cfFactor) * 0.6em - 0.3em );
+
+            --testStretch:              1;
+            --bodyStretch:              calc( var(--cfFactor) * 0.44 - 0.22 + 0.9785 ); //0.9785;
+            --titleStretch:             0.95;
+            --subStretch:               1;
+        }
+
+    </style>
+    <link rel="stylesheet" href="../demoartikel.css" />
+
+    <body lang="de">
+        <div id="viewport">
+            <div id="target"/>
+        </div>
+        <div id="fixedContent">
+            <div class="col-span-1" style="height:var(--titleAreaHeightPx);">
+                <h1 class="title-3">Fleisch- Video auf Tiktok: Gefängnis</h1>
+            </div>
+        </div>
+        <div id="flowedContent">
+            <p class="content" id="autoheight">
+                <span class="location">JAKARTA</span><span class="agentur">/DPA</span> – In Indonesien ist eine bekannte Influencerin zu zwei Jahren Haft verurteilt worden, weil sie eine islamische Gebetsformel aufgesagt und anschließend Schweinefleisch gegessen hat. Der Verzehr von Schweinefleisch ist im Islam streng verboten – die für ihre Tiktok-Videos bekannte Frau hatte sich jedoch dabei gefilmt und den Clip ins Netz gestellt. Die Lifestyle-Influencerin mit dem Künstlernamen Lina Mukherjee, die auf Tiktok mehr als zwei Millionen Follower hat, sei wegen „Anstachelung zum Hass“ zu der Gefängnisstrafe und zusätzlich zu einer Geldbuße von umgerechnet rund 15 200 Euro verurteilt worden, berichtete die Zeitung „Tribun Jambi“ unter Berufung auf das zuständige Gericht in Palembang auf der Insel Sumatra. Sie habe eine Woche Zeit, um Berufung einzulegen, werde aber wahrscheinlich darauf verzichten, sagte die Frau dem Blatt zufolge. Möglicherweise könnte das Strafmaß noch erhöht werden.</p>
+        </div>
+
+        <script type="text/javascript">
+            document.addEventListener('readystatechange', event => {
+                if( document.readyState == "complete" ){
+                    var CFroot = document.querySelector(":root");
+                    var cfr = getComputedStyle(CFroot);
+
+                    var cf = new FTColumnflow('target', 'viewport', {
+                        columnCount: cfr.getPropertyValue('--columnCount'),
+                        columnGap: cfr.getPropertyValue('--columnGap'),
+                        showGrid: false,
+                        lineHeight: cfr.getPropertyValue('--lineHeight'),
+                        lineCount: Number(cfr.getPropertyValue('--lineCount'))
+                    });
+                    cf.flow(document.getElementById('flowedContent'), document.getElementById('fixedContent'));
+                }
+            });
+        </script>
+    </body>
+</html>

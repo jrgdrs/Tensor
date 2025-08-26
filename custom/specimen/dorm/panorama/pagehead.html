@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+   
+    <head>
+        <meta charset="utf-8" />
+    </head>
+
+    <style type="text/css">
+
+        :root {
+            --renderWidth:              1066px;
+            --columnCount:              6;
+            --columnGap:                15.874px;
+            --columnWidth:              calc( (var(--renderWidth) + var(--columnGap)) / var(--columnCount) - var(--columnGap) );
+            
+            --lineHeight:               14.13px;
+            --lineCount:                121;
+        }
+
+        .pagehead { 
+            width: 1066px;
+            display:flex ;
+            flex-direction:row;
+            justify-content: space-between;
+            margin-top:5px;
+            padding-bottom:12px;
+            border-bottom: .5pt solid black; }
+        .pageno {
+            width: 250px;
+                    text-align:         left;
+                    font-family:        'InterFont';
+                    font-size:          29pt;
+                }
+        .pagetitle {
+                    text-align:         left;
+                    font-family:        'InterFont';
+                    font-size:          29pt;
+                    color: rgb(50,100,180);
+                            text-transform: uppercase;
+
+                }
+        .edition {
+                        width: 250px;
+display:flex ; flex-direction: column; _valign:bottom;
+                  
+                }
+        .pubdate {
+                    margin-top:11px;
+                    text-align:         left;
+                    font-family:        'InterFont';
+                    font-size:          9pt;
+                    text-align:right;
+                }
+        .issue {
+                    text-align:         left;
+                    font-family:        'AuthorFont';
+                    font-size:          9pt;
+                                        text-align:right;
+                                        text-transform: uppercase;
+
+
+                }
+
+    </style>
+    <link rel="stylesheet" href="../demoartikel.css" />
+    <body lang="de">
+        <div class="pagehead">
+            <div class="pageno">8</div>
+            <div class="pagetitle">Panorama</div>
+            <div class="edition">
+                <div class="pubdate">Freitag, 22. September 2023</div>
+                <div class="issue">Nordwest-Zeitung, Nr. 222</div>
+            </div>
+        </div>
+    </body>
+</html>

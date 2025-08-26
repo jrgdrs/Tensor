@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="de">
+	<head>
+        <script type="text/javascript" src="../FTColumnflow.js"></script>
+		<meta charset="utf-8" />
+		<style type="text/css">
+
+
+        :root {
+            --renderWidth:              163.5px;
+            --columnCount:              1;
+
+            --columnGap:                15.874px;
+            --columnWidth:              calc( (var(--renderWidth) + var(--columnGap)) / var(--columnCount) - var(--columnGap) );
+            
+            --lineHeight:               14.13px;
+            --lineCount:                101;
+            
+            --renderAreaHeightLines:    108;
+            --titleAreaHeightLines:     1;
+            --imageAreaHeightLines:     23;
+            --imageHeightLines:         21;
+            --quoteAreaHeightLines:     15;
+            --infoAreaHeightLines:     22;
+
+            --renderHeight:             calc( var(--renderAreaHeightLines) * var(--lineHeight) + 1px);
+            --titleAreaHeightPx:        calc( var(--titleAreaHeightLines) * var(--lineHeight) - 1px );
+            --imageAreaHeightPx:        calc( var(--imageAreaHeightLines) * var(--lineHeight) - 1px );
+            --imageHeightPx:            calc( var(--imageHeightLines) * var(--lineHeight) - 4.8px );
+            --quoteAreaHeightPx:        calc( var(--quoteAreaHeightLines) * var(--lineHeight) - 1px );
+            --infoAreaHeightPx:        calc( var(--infoAreaHeightLines) * var(--lineHeight) - 2px );
+
+            --cfFactor:                 .5;
+            --wordSpacing:              calc( var(--cfFactor) * 0.6em - 0.3em );
+
+            --testStretch:              .5;
+            --bodyStretch:              calc( var(--cfFactor) * 0.44 - 0.22 + 0.9785 ); //0.9785;
+            --titleStretch:             0.95;
+            --subStretch:               1;
+        }
+
+		</style>
+		<link rel="stylesheet" href="../demoartikel.css" />
+	</head>
+
+	<body lang="de">
+        <div id="viewport">
+            <div id="target"/>
+        </div>
+        <div id="fixedContent">
+            <div class="col-span-1" style="height:var(--titleAreaHeightPx);">
+                <div class="rubrikkopf">Menschen</div>
+            </div>
+        </div>
+        <div id="flowedContent">
+            <div class="content" id="autoheight">
+
+	            <div class="i" style="height: calc( var(--lineHeight) * 10 ); 
+			margin-top: calc( var(--lineHeight) * 1 );">
+				<img class="round" src="cindy.jpg"/>
+				<p class="rotcredit">DPA-Archivbild: Strauss</p>
+			</div>
+			<p>Das US-amerikanische Model <span class="location">Cindy Crawford</span> (57) hat sich 1998 entgegen der Ratschläge seines Umfeldes für ein „Playboy“-Shooting entschieden. „Ich weiß nicht, es gab irgendetwas, das mich daran fasziniert hat. Also habe ich gegen den Ratschlag meiner Agenten ,Ja’ gesagt“, sagt Crawford in einer neuen AppleTV+-Dokumentation. Sie erzählt darin, dass sie mit dem „Playboy“ damals einen besonderen Deal abgeschlossen habe: Sie habe keine hohe Gage haben wollen, dafür aber die komplette Kontrolle über die Bilder und die Möglichkeit, die Geschichte jederzeit stoppen zu können, wenn sie ihr nicht gefallen hätte. „Das hat mich bestärkt.“
+</p>
+			<div class="i" style="height: calc( var(--lineHeight) * 10 ); 
+			margin-top: calc( var(--lineHeight) * 1 );">
+				<img class="round" src="kevin.jpg"/>
+								<p class="rotcredit">DPA-Archivbild: Anspach</p>
+
+			</div>
+			<p>Fußball-Weltmeister <span class="location">Kevin Großkreutz</span> und seine Frau haben sich getrennt. „Ja, es stimmt. Caro und ich sind schon seit drei Monaten kein Paar mehr“, sagte Großkreutz der „Bild“-Zeitung. „Im Leben kommt es häufig anders, als man plant. Wir haben uns einfach auseinandergelebt. Aber nach wie vor ein vernünftiges Verhältnis“, sagte der 35 Jahre alte frühere Profi-Fußballer. Das Paar hatte vor vier Jahren standesamtlich und im vergangenen Jahr kirchlich geheiratet. Großkreutz spielt seit einiger Zeit auf Amateurebene –aktuell beim Sechstligisten Wacker Obercastrop.</p>
+
+			<div class="i" style="height: calc( var(--lineHeight) * 10 ); 
+			margin-top: calc( var(--lineHeight) * 1 );">
+				<img class="round" src="george.jpg"/>
+				<p class="rotcredit">DPA-Bild: Vennenbernd</p>
+
+			</div>
+			<p>Hollywoodstar <span class="location">George Clooney</span> hat den streikenden Hollywood-Drehbuchautoren und -Schauspielern seine Unterstützung zugesichert. „Wir sind alle für einen anständigen und fairen Lohn“, sagte der 62-Jährige am Mittwochabend beim Internetkongress Digital X in Köln. Niemand wolle hören, wie er über Ungerechtigkeit rede, denn er habe eine sehr glückliche Karriere hinter sich. Es gebe aber zahlreiche Schauspieler, die darum kämpften, ihren Lebensunterhalt zu verdienen. Clooney kann sich nach eigenen Angaben auch noch an magerere Zeiten erinnern: „Ich war zehn Jahre lang arbeitsloser Schauspieler“, sagte er.</p>
+
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            document.addEventListener('readystatechange', event => {
+                if( document.readyState == "complete" ){
+                    var CFroot = document.querySelector(":root");
+                    var cfr = getComputedStyle(CFroot);
+
+                    var cf = new FTColumnflow('target', 'viewport', {
+                        columnCount: cfr.getPropertyValue('--columnCount'),
+                        columnGap: cfr.getPropertyValue('--columnGap'),
+                        showGrid: false,
+                        lineHeight: cfr.getPropertyValue('--lineHeight'),
+                        lineCount: Number(cfr.getPropertyValue('--lineCount'))
+                    });
+                    cf.flow(document.getElementById('flowedContent'), document.getElementById('fixedContent'));
+                }
+            });
+        </script>
+
+
+	</body>
+</html>
