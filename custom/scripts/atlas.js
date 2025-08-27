@@ -92,7 +92,7 @@ const htmlPost = '</body></html>';
         var myBearingString = '<path class="pCross" d="' + getMyCross( 0, ascender ) + getMyCross( glyphW, ascender ) + '"/>\r\n'
 
         //Cadence
-        var myCadence = 18; /// CADENCE
+        var myCadence = 22.4284; /// CADENCE
         var myAngle = fontAngle; // ANGLE e.g. 15 degree
         var myCadenceString = '<path class="pCadence" d="' + getGutter( 0, glyphW, myCadence, myAngle )  + '"/>\r\n'
                            + '<path class="pCadenceV" d="' + getGutter( 0, glyphW, myCadence * 5, myAngle )  + '"/>\r\n'
